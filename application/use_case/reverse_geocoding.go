@@ -5,12 +5,7 @@ import (
 	"github.com/nekoze1210/echo-api-w3w/infrastructure/what3words/reversegeocoding"
 )
 
-func ReverseGeocoding(coordinatesString string) (*w3w.Response, error) {
-	r := reversegeocoding.Request{
-		Coordinates: coordinatesString,
-		Language:    "ja",
-		Format:      "json",
-	}
+func ReverseGeocoding(r *reversegeocoding.Request) (*w3w.Response, error) {
 	result, err := r.Execute()
 	if err != nil {
 		return nil, err
